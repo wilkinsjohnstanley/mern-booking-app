@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express'
 import cors from 'cors'
-import "dotenv/condig";
+import "dotenv/config";
 
 //This creates a new express app
 const app = express();
