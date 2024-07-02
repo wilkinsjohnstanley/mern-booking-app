@@ -1,6 +1,10 @@
 import express, {Request, Response} from 'express';
 import cors from 'cors';
-import "dotenv/config";
+import "dotenv/config"; //loads env variables when app starts
+import mongoose from 'mongoose'; //lets us connect, query, methods etc
+
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
+
 
 //This creates a new express app
 const app = express();
