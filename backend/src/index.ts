@@ -22,8 +22,8 @@ app.get("/api/test", async (req: Request, res: Response) => {
 
 //
 app.listen(7000, ()=>{
-    console.log("server running on locahost:7000");
-})
+    console.log("Your server running on locahost: 7000");
+});
 
 
 
