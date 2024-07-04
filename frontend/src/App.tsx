@@ -3,8 +3,8 @@ import {
   Route,
   Routes,
   Navigate,
-  
 } from "react-router-dom";
+import Layout from "./layouts/Layout";
 
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<span className="text-4xl">Home Page</span>}></Route>
+        <Route path="/" element={<Layout></Layout>}></Route>
         <Route path="/search" element={<>Search Page</>}></Route>
         <Route path="*" element={<Navigate to="/"></Navigate>}></Route>
       </Routes>
