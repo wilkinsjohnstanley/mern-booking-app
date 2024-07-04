@@ -13,7 +13,7 @@ const Header = () => {
 
         </span>
         <span className="flex space-x-2">
-            <Link to="/sign-in"></Link>
+            <Link to="/sign-in" className="flex items-center text-blue-600 px-3 front-bold hover:bg-gray-100"></Link>
         </span>
 
       </div>
@@ -21,4 +21,4 @@ const Header = () => {
   )
 }
 
- 
+ export default Header;

@@ -1,3 +1,5 @@
+import Header from "../components/Header"
+
 const Layout = () => {
     return (
         // align elements in a column using flexbox
@@ -7,3 +9,4 @@ const Layout = () => {
         </div>
     )
 }
+export default Layout;
