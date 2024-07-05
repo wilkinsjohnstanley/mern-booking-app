@@ -2,13 +2,20 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 
-const Layout = () => {
+interface Props {
+    children: React.ReactNode;
+}
+
+const Layout = ({children}: Props) => {
     return (
         // align elements in a column using flexbox
         // it makes sure the app takes up the whole screen
         <div className="flex flex-col min-h-screen">
             <Header/>
             <Hero/>
+            <div className="container mx-auto py-10 flex-1">
+            {children}
+            </div>
             <Footer/>
         </div>
     );
