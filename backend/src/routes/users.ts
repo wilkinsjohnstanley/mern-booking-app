@@ -1,17 +1,11 @@
 import express,{Request,Response} from "express";
 import User from "../models/user";
-
 const router = express.Router();
-
 router.post("/register", async(req: Request, res:Response)=>{
     try {
         //first check if The User Exists already based on the email.
-
-
         //check the user model/document in DB
         //find any doc where they match
-        //
-
         let user = await User.findOne({
             email:req.body.email,
         });
