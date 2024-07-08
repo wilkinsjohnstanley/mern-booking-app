@@ -2,6 +2,7 @@ import express, {Request, Response} from 'express';
 import cors from 'cors';
 import "dotenv/config"; //loads env variables when app starts
 import mongoose from 'mongoose'; //lets us connect, query, methods etc
+import userRoutes from "./routes/users";
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
 
@@ -18,11 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 //we'll configure it to recognize our front end and backend.
 app.use(cors());
 
-//get test
-//NOW WITH ADDED TYPES!
-app.get("/api/test", async (req: Request, res: Response) => {
-    res.json({ message: "hello from express endpoint!" });
-});
+app.use("/api/users", userRoutes); 
 
 //
 app.listen(7000, ()=>{
