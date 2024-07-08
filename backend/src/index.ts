@@ -3,6 +3,8 @@ import cors from 'cors';
 import "dotenv/config"; //loads env variables when app starts
 import mongoose from 'mongoose'; //lets us connect, query, methods etc
 import userRoutes from "./routes/users";
+import authRoutes from "./routes/auth";
+
 
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
 
@@ -19,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 //we'll configure it to recognize our front end and backend.
 app.use(cors());
 
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes); 
 
 //
@@ -27,4 +30,4 @@ app.listen(7000, ()=>{
 });
 
 
-
+ 
