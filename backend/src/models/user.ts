@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 export type UserType = {
     _id: string;
@@ -7,12 +8,9 @@ export type UserType = {
     firstName: string;
     lastName: string;
 };
-
-
 // the userSchema determines what properties
 // get stored against a user in a given document
 // we need to pass an object to the schema
-
 //in the curley braces attach the properties 
 //you want to associate with the email field in the document.
 const userSchema = new mongoose.Schema({
@@ -21,6 +19,13 @@ const userSchema = new mongoose.Schema({
     firstName: { type:String, required:true},
     lastName: { type:String, required:true},
 
+});
+//We encrypt the password and save the user. Middleware for MongoDB. 
+userSchema.pre("save", async function(next){
+    if(this.isModified('password')){
+        this.password = await  bcrypt.hash(this.password, 8)
+    }
+    next();
 });
 
 //once we have our type and schema we can initialize our model
