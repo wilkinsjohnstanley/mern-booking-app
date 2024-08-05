@@ -75,6 +75,10 @@ const Register = () => {
             })}
             ></input>
           </label>
+          {/* add a sign in link */}
+          <span>
+            <button className="bg-blue-600 text-white p-2 font-bold hover:bg-blue-500"></button>
+          </span>
     </form>
   )
 }
