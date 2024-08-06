@@ -1,7 +1,9 @@
 import {useForm} from "react-hook-form";
-
+import { useMutation } from "react-query";
+//import ALL functions from the API client as a variable
+import * as apiClient from '../api-client';
 //type
-type RegisterFormData = {
+export type RegisterFormData = {
   firstName:string,
   lastName:string;
   email:string;
@@ -16,10 +18,24 @@ const Register = () => {
     handleSubmit,
     formState:{errors},
   }= useForm<RegisterFormData>();
+  
+  //this will be imported from React Query
+  //put, post, delete requests can be done with this hook
+  const mutation = useMutation(apiClient.register, {
+    //define what to do if ok or if bad
+    onSuccess:()=>{
+      console.log("Registration was a success!")
+    },
+    onError:(error:Error)=>{
+      console.log(error.message);
+    }
+  })
 
   // create a function that calls the handleSubmit function
   const onSubmit = handleSubmit((data)=>{
-    console.log(data);
+    // console.log(data);
+    //put it here so it only calls if ok
+    mutation.mutate(data);
   });
   return (
     <form className="flex flex-col gap-5" onSubmit={onSubmit}>
