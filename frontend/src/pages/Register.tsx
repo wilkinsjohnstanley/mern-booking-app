@@ -12,7 +12,7 @@ export type RegisterFormData = {
 }
 
 const Register = () => {
-
+  console.log("Register Component Loaded");
   const {register, 
     watch, 
     handleSubmit,

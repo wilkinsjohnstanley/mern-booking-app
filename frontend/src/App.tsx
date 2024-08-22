@@ -26,7 +26,14 @@ const App = () => {
         </Layout>}
         />
         
-        <Route path="/register" element={<Layout><Register/></Layout>}/>
+        <Route 
+        path="/register" 
+        element={
+        <Layout>
+          <Register/>
+          </Layout>
+        }
+        />
         
   
         <Route path="*" element={<Navigate to="/"/>}/>
