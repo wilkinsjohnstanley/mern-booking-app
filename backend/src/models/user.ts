@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 export type UserType = {
+    // typescript uses lowercase 'string' Schema uses uppercase 'String'
     _id: string;
     email: string;
     password: string;

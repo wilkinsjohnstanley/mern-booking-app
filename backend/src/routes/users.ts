@@ -16,7 +16,7 @@ router.post("/register", [
 ], async(req: Request, res:Response)=>{
     const errors = validationResult(req);
     if (!errors.isEmpty()){
-        return res.status(400).json({message: errors.array()})
+        return res.status(400).json({message: errors.array()});
     }
 
 
@@ -29,7 +29,7 @@ router.post("/register", [
             email:req.body.email,
         });
         if(user){
-            return res.status(400).json({message:"User already exists"})
+            return res.status(400).json({message:"User already exists"});
         }
         user = new User(req.body);
         await user.save();
