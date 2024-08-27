@@ -13,24 +13,30 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={
+        {/* homepage */}
+        <Route 
+        path="/" 
+        element={
           <Layout>
           <p>Home Page</p>
         </Layout>
-      }></Route>
+        }
+        />
+      {/* search page */}
         <Route 
         path="/search" 
         element={
           <Layout>
           <p>Search Page</p>
-        </Layout>}
+        </Layout>
+        }
         />
-        
+        {/* registration page */}
         <Route
           path="/register"
           element={
             <Layout>
-              <Register />
+              <Register></Register>
             </Layout>
           }
         />
