@@ -4,26 +4,27 @@ import { useMutation } from "react-query";
 import * as apiClient from '../api-client';
 //type
 export type RegisterFormData = {
-  firstName:string,
+  firstName:string;
   lastName:string;
   email:string;
   password:string;
   confirmPassword:string;
-}
+};
 
 const Register = () => {
   console.log("Register Component Loaded");
-  const {register, 
+  const {
+    register, 
     watch, 
     handleSubmit,
     formState:{errors},
-  }= useForm<RegisterFormData>();
+  } = useForm<RegisterFormData>();
   
   //this will be imported from React Query
   //put, post, delete requests can be done with this hook
   const mutation = useMutation(apiClient.register, {
     //define what to do if ok or if bad
-    onSuccess:()=>{
+    onSuccess: async () => {
       console.log("Registration was a success!")
     },
     onError:(error:Error)=>{
@@ -126,4 +127,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Register;

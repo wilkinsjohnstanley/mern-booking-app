@@ -26,13 +26,13 @@ const App = () => {
         </Layout>}
         />
         
-        <Route 
-        path="/register" 
-        element={
-        <Layout>
-          <Register/>
-          </Layout>
-        }
+        <Route
+          path="/register"
+          element={
+            <Layout>
+              <Register />
+            </Layout>
+          }
         />
         
   
@@ -42,6 +42,6 @@ const App = () => {
   );
 };
 
-export default App
+export default App;
 
 
